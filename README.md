@@ -1,12 +1,12 @@
-# swift-blake3
+# SwiftBlake3
 bridge swift and blake3
 
-## Using swift-blake3
+## Using SwiftBlake3
 
-swift-blake3 is available as a Swift Package Manager package. To use it, add the following dependency in your `Package.swift`:
+SwiftBlake3 is available as a Swift Package Manager package. To use it, add the following dependency in your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/zhiqiangj217/swift-blake3.git", from: "0.1.0"),
+.package(url: "https://github.com/zhiqiangj217/SwiftBlake3.git", from: "0.1.0"),
 ```
 
-and to your target, add `Crypto` to your dependencies. You can then `import Crypto` to get access to Swift Crypto's functionality.
+and to your target, add `SwiftBlake3` to your dependencies. You can then `import SwiftBlake3` to get access to SwiftBlake3's functionality.
