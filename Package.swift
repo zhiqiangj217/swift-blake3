@@ -3,6 +3,13 @@
 
 import PackageDescription
 
+#if arch(arm64)
+let exclude = ["blake3_avx2_x86-64_unix.S", "blake3_avx512_x86-64_unix.S", "blake3_sse2_x86-64_unix.S", "blake3_sse41_x86-64_unix.S"]
+#else
+let exclude = ["blake3_neon.c"]
+#endif
+
+
 let package = Package(
     name: "SwiftBlake3",
     products: [
@@ -16,12 +23,9 @@ let package = Package(
         
         .target(name: "CBlake3",
                 path: "Sources/blake3-1.8.2",
+                exclude: exclude,
                 cSettings: [
                     .define("BLAKE_USE_NEON", to: "1", .when(platforms: [.macOS, .iOS, .tvOS, .watchOS])),
-                    .define("BLAKE3_NO_AVX2"),
-                    .define("BLAKE3_NO_AVX512"),
-                    .define("BLAKE3_NO_SSE41"),
-                    .define("BLAKE3_NO_SSE2")
                 ]),
         
         // Targets are the basic building blocks of a package, defining a module or a test suite.
